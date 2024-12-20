@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "web-vitals": "^4.2.4"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
-}

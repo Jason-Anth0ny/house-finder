@@ -60,3 +60,56 @@
 #list {
   margin-bottom: 12%;
 }
+
+/** styles in the form component **/
+
+#checkType {
+  display: inline-flex;
+  padding: 3%;
+}
+
+input[type="checkbox"] {
+  padding: 2%;
+  accent-color:  #61dafb;
+}
+
+input[type="text"]:active {
+  outline: #1e656e;
+}
+
+#bedrooms, #date {
+  display: inline-flex;
+  padding-bottom: 3%;
+}
+
+#submitBtn {
+  margin-top: 2%;
+  border: none;
+  width: 30%;
+  height: 38px;
+  border-radius: 7px;
+  background-color: #309DAB;
+  color: white;
+}
+
+#submitBtn:hover{
+  background-color: #1e656e;
+}
+
+
+/** styles for housecard component **/
+#houseDisplayCard {
+  background-color: #309DAB;
+  color: white;
+}
+
+#houseDisplayCardFav {
+  background-color: red;
+  color: white;
+}
+
+
+#houseDisplayCard:hover {
+  background-color: #1e656e;
+  cursor: pointer;
+}

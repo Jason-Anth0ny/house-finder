@@ -1,7 +1,8 @@
 import house from '../house-sample.jpg'
 
 
-export default function HouseCard() {
+export default function HouseCard({location, price, bedrooms}) {
+    let enFormatter = new Intl.NumberFormat('en-US', {style: 'decimal'})
     return(
         <div class="card mb-3" style={{backgroundColor: "#309DAB", color: "white"}}>
             <div class="row g-0">
@@ -10,9 +11,9 @@ export default function HouseCard() {
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
-                    <h1 class="card-title">119/E, English Street Name, English City</h1>
-                    <h4 class="card-text">$12,900</h4>
-                    <h5>4 Bedrooms</h5>
+                    <h1 class="card-title">{location}</h1>
+                    <h4 class="card-text">{price}</h4>
+                    <h5>{bedrooms}</h5>
                     <h5>2 Bathrooms</h5>
                 </div>
                 </div>

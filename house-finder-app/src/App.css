@@ -70,7 +70,7 @@
 
 input[type="checkbox"] {
   padding: 2%;
-  accent-color:  #61dafb;
+  accent-color:  #32A7A9;
 }
 
 input[type="text"]:active {
@@ -86,9 +86,9 @@ input[type="text"]:active {
   margin-top: 2%;
   border: none;
   width: 30%;
-  height: 38px;
+  padding: 1.5%;
   border-radius: 7px;
-  background-color: #309DAB;
+  background-color: #32A7A9;
   color: white;
 }
 
@@ -98,18 +98,13 @@ input[type="text"]:active {
 
 
 /** styles for housecard component **/
-#houseDisplayCard {
+div[data-dynamic-id="houseDisplayCard"] {
   background-color: #309DAB;
   color: white;
 }
 
-#houseDisplayCardFav {
-  background-color: red;
-  color: white;
-}
 
-
-#houseDisplayCard:hover {
+.houseDisplayCard:hover {
   background-color: #1e656e;
   cursor: pointer;
 }

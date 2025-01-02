@@ -1,7 +1,17 @@
 import {faHouse, faCartShopping, faHeart} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function Navbar() {
+export default function Navbar({returnClickedStatus, favStatus, takeMeHome}) {
+
+   const handleFavouritesClick = () => {
+    returnClickedStatus(!favStatus);
+   }
+
+   const handleHomeClick = () => {
+    takeMeHome();
+   }
+        
+
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#cfcdcc", overflow: "hidden",}}>
@@ -13,7 +23,7 @@ export default function Navbar() {
                 <div class="collapse navbar-collapse float-end" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" onClick={handleHomeClick}>
                             <FontAwesomeIcon icon={faHouse} size='xl' style={{color: "#2ba1ab",}} />
                         </a>
                     </li>
@@ -23,7 +33,7 @@ export default function Navbar() {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" onClick={handleFavouritesClick}>
                             <FontAwesomeIcon icon={faHeart} size='xl' style={{color: "#2ba1ab",}} />
                         </a>
                     </li>

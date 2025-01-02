@@ -14,11 +14,11 @@ export default function Form(onSearch) {
         <label for="checkType">Type</label><br/>
         <div id="checkType" class="row">
           <div class="form-check col" >
-            <input type="checkbox" class="form-check-input checkbox rounded-circle" id="exampleCheck1" style={{accentColor: " #61dafb"}}/>
+            <input type="radio" name="housetype" class="form-check-input checkbox rounded-circle" id="exampleCheck1" style={{accentColor: " #61dafb"}}/>
             <label class="form-check-label" for="exampleCheck1">Flat</label>
           </div>
           <div class="form-check col">
-            <input type="checkbox" class="form-check-input checkbox rounded-circle" id="exampleCheck1"/>
+            <input type="radio" name="housetype" class="form-check-input checkbox rounded-circle" id="exampleCheck1"/>
             <label class="form-check-label" for="exampleCheck1">House</label>
           </div>
         </div>

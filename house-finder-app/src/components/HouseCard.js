@@ -14,7 +14,7 @@ export default function HouseCard({ location, price, bedrooms, houseKey, setHous
     return (
   <div draggable id={houseId} data-dynamic-id="houseDisplayCard" class="card mb-3 houseDisplayCard" onClick={handleHouseClick}>
             <div class="row g-0">
-                <div class="col-md-4" style={{ padding: "1%" }}>
+                <div class="col-md-4" style={{ padding: "1%", alignItems: "center", display: "flex"}}>
                     <img src={house} class="img-fluid rounded" alt="Property-Image" />
                 </div>
                 <div class="col-md-8">

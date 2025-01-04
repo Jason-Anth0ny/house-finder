@@ -108,3 +108,24 @@ div[data-dynamic-id="houseDisplayCard"] {
   background-color: #1e656e;
   cursor: pointer;
 }
+
+/** styles for SingleDisplay component **/
+
+#imageCarousel {
+  display: flex;
+  justify-content: center;
+}
+
+.propImage {
+  width: 100px;
+  height: 100px;
+  background-image: url(./house-sample.jpg);
+
+}
+
+/** media queries **/
+@media (max-width: 750px) {
+  #houseDisplay {
+    overflow-y:visible;
+  }
+}

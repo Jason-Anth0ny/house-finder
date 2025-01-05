@@ -15,6 +15,7 @@ export default function HouseInfo({ property }) {
         <div>
             <h1>{property.location}</h1>
             <h3>{formattedPrice}</h3>
+            <h4>{property.type}</h4>
             <h5>{property.bedrooms} Bedrooms</h5>
             <h5>{property.bathrooms} Bathrooms</h5>
             <div className="row" style={{paddingTop: "2%"}}>

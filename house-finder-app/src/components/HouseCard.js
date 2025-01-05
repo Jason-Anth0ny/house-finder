@@ -1,7 +1,6 @@
 import house from '../house-sample.jpg'
-import SingleDisplay from './SingleDisplay'
 
-export default function HouseCard({ location, price, bedrooms, houseKey, setHouseClicked }) {
+export default function HouseCard({ location, price, bedrooms, houseKey, setHouseClicked, type }) {
 
     let enFormatter = new Intl.NumberFormat('en-US', { style: 'decimal' })
     let formattedPrice = "$" + enFormatter.format(Number(price))
@@ -11,8 +10,12 @@ export default function HouseCard({ location, price, bedrooms, houseKey, setHous
         setHouseClicked(houseId);
     }
 
+    const handleDragStart = (e) => {
+        e.dataTransfer.setData('houseId', houseId);
+    };
+
     return (
-  <div draggable id={houseId} data-dynamic-id="houseDisplayCard" class="card mb-3 houseDisplayCard" onClick={handleHouseClick}>
+  <div draggable id={houseId} data-dynamic-id="houseDisplayCard" class="card mb-3 houseDisplayCard" onClick={handleHouseClick} onDragStart={handleDragStart}>
             <div class="row g-0">
                 <div class="col-md-4" style={{ padding: "1%", alignItems: "center", display: "flex"}}>
                     <img src={house} class="img-fluid rounded" alt="Property-Image" />
@@ -20,7 +23,8 @@ export default function HouseCard({ location, price, bedrooms, houseKey, setHous
                 <div class="col-md-8">
                     <div class="card-body">
                         <h1 class="card-title">{location}</h1>
-                        <h4 class="card-text">{formattedPrice}</h4>
+                        <h3 class="card-text">{formattedPrice}</h3>
+                        <h4>{type}</h4>
                         <h5>{bedrooms}</h5>
                         <h5>2 Bathrooms</h5>
                     </div>

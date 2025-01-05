@@ -7,6 +7,8 @@ import HouseCard from './components/HouseCard';
 import properties from './properties(1).json';
 import { useEffect, useState } from 'react';
 import SingleDisplay from './components/SingleDisplay';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function App() {
   const [favClicked, setfavClicked] = useState(false);
@@ -33,6 +35,22 @@ function App() {
     });
     setFilteredProperties(filtered);
   }
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const houseId = e.dataTransfer.getData('houseId');
+    const updatedProperties = properties.properties.map((property) => {
+      if (property.id === houseId) {
+        property.fav = false;
+      }
+      return property;
+    });
+    setFilteredProperties(updatedProperties);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
   const setHouseClickedFunc = (clicked) => {
     setHouseClicked(clicked);
@@ -67,34 +85,41 @@ function App() {
           </div>
           <div className="col-7" id="houseDisplay" style={{ backgroundColor: "#D9D9D9", padding: "1%", borderRadius: "1%", height: "100vh", overflow: "auto" }}>
             {houseClicked ? (
-              properties.properties.map((property) => property.id === houseClicked && <SingleDisplay key={property.id} property={property}  />)
+              properties.properties.map((property) => property.id === houseClicked && <SingleDisplay key={property.id} property={property} />)
             ) : (
               <div id='list'>
-              <h1>Your Favourites...</h1>
-              {properties.properties.map((property) =>
-              // this looks through the entire json array for properties that have fav set to true and only renders them 
-                property.fav &&
-                (
-                  <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} setHouseClicked={setHouseClickedFunc} />
-                ))}
-            </div>
+                <div className='row' style={{display:"flex", justifyContent: "center"}}>
+                  <div className='col'>
+                    <h1>Your Favourites...</h1>
+                  </div>
+                  <div className='col' style={{display:"flex",justifyContent:"end", alignContent:"center", marginTop:"1%"}} onDrop={handleDrop} onDragOver={handleDragOver}>
+                    <FontAwesomeIcon icon={faTrash} flip="horizontal" size="xl " style={{ color: "#610000", }} />
+                  </div>
+                </div>
+                {properties.properties.map((property) =>
+                  // this looks through the entire json array for properties that have fav set to true and only renders them 
+                  property.fav &&
+                  (
+                    <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} type={property.type} setHouseClicked={setHouseClickedFunc} />
+                  ))}
+              </div>
             )}
-            
+
           </div>
         </div>
       ) : (
         //all properties are listed here
         <div id="main-section" className="row">
           <div className="col-4" style={{ backgroundColor: "#D9D9D9", position: "sticky", height: "100vh", padding: "3%" }}>
-            <Form onSearch={handleSearch}/>
+            <Form onSearch={handleSearch} />
           </div>
           <div className="col-7" id="houseDisplay" style={{ backgroundColor: "#D9D9D9", padding: "1%", borderRadius: "1%", height: "100vh", overflow: "auto" }}>
             {houseClicked ? (
-                properties.properties.map((property) => property.id === houseClicked && <SingleDisplay key={property.id}  property={property}  />)
+              properties.properties.map((property) => property.id === houseClicked && <SingleDisplay key={property.id} property={property} />)
             ) : (
               <div id='list'>
                 {filteredProperties.map((property) => (
-                  <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} setHouseClicked={setHouseClickedFunc} />
+                  <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} type={property.type} setHouseClicked={setHouseClickedFunc} />
                 ))}
               </div>
             )}

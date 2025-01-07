@@ -100,7 +100,7 @@ function App() {
                   // this looks through the entire json array for properties that have fav set to true and only renders them 
                   property.fav &&
                   (
-                    <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} type={property.type} setHouseClicked={setHouseClickedFunc} />
+                    <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} type={property.type} housePic={property.picture} setHouseClicked={setHouseClickedFunc} />
                   ))}
               </div>
             )}
@@ -119,7 +119,7 @@ function App() {
             ) : (
               <div id='list'>
                 {filteredProperties.map((property) => (
-                  <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} type={property.type} setHouseClicked={setHouseClickedFunc} />
+                  <HouseCard key={property.id} location={property.location} price={property.price} bedrooms={property.bedrooms + " Bedrooms"} fav={property.fav} picture={property.picture} houseKey={property.id} type={property.type} bathrooms = {property.bathrooms + " Bathrooms"} housePic={property.picture} setHouseClicked={setHouseClickedFunc} />
                 ))}
               </div>
             )}

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import house from '../house-sample.jpg'
 
 export default function ImageViewer({ property }) {
     const [images, setImages] = useState([]);

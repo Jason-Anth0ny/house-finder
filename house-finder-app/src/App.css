@@ -129,3 +129,10 @@ div[data-dynamic-id="houseDisplayCard"] {
     overflow-y:visible;
   }
 }
+
+/** styles for imageViewer component **/
+
+.carousel img {
+  height: 350px;
+  width: auto;
+}

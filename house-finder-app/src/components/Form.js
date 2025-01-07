@@ -106,7 +106,7 @@ export default function Form({ onSearch }) {
               value={fromDate}
               onChange={(e) => setFromDate(e.target.value)} // Update state
             />
-          </div> to
+          </div> 
           <div className="col">
             <input
               type="date"
